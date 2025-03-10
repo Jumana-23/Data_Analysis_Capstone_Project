@@ -1,0 +1,127 @@
+---
+title: "Capstone_Project_Analysis_Report"
+author: "Jumana Alaarajee"
+date: "2025-03-10"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Introduction: 
+In this analysis we explore social media engagement across various social media platforms such as Facebook, Instagram,
+TikTok and many others. Engagement is defined as the combination of user
+activity which includes likes, posts, follows and time spent on the
+application. The objective of this analysis is to determine which social
+media platform has the best engagement and assess any correlation
+between user interaction (likes, follows, posts) and time spent.
+
+## Data Upload: 
+
+The dataset used for this analysis can be obtained through Kaggle,
+<https://www.kaggle.com/datasets/bhadramohit/social-media-usage-datasetapplications>.
+This dataset takes information from 1000 random users across all social
+media platforms and provides information regarding time spend on the
+app, likes, follows, and posts.
+
+```{r}
+
+data <-read.csv("social_media_usage.csv")
+head(data)
+
+```
+
+## Engagement Calculation:
+
+We define engagement as a ratio of user activity (posts, likes, and
+follows) to the time spent on the platform. The formula for calculating
+engagement is:
+
+Engagement = (Posts Per Day + Likes Per Day + Follows Per Day) / Daily
+Minutes Spent
+
+This provides us with a normalized measure of user activity. We create a
+new column, engagement, to store this calculated value for each user.
+
+```{r, echo=FALSE}
+# calculate engagement
+data$engagement <- (data$Posts_Per_Day+data$Likes_Per_Day+data$Follows_Per_Day)/data$Daily_Minutes_Spent 
+# check first couple of rows of dataset, can be uncommented based on readers preference
+#head(data)
+```
+
+## Engagement Barplot Visualization:
+
+Next, we visualize the average engagement per social media platform. The
+bar plot below shows the average engagement across different platforms,
+helping us identify which platform has the highest average user
+engagement.
+
+```{r, echo=FALSE}
+# mapped average engagement on barplot 
+library(ggplot2)
+ggplot(data, aes(x=App, y=engagement, color=App))+geom_bar(stat = "summary", fun = "mean")+ labs(title = "Average Engagment per Social Media Platform", x="App", y="Avg. Engagement")
+```
+
+## Correlation Analysis:
+
+To further understand the relationships between user behavior and
+engagement, we calculate the correlations between various factors: posts
+per day, likes per day, follows per day, and daily minutes spent. These
+correlations help us understand the strength of the relationship between
+different user interactions and time spent on the platform.
+
+```{r}
+cor(data$Posts_Per_Day,data$engagement)
+cor(data$Likes_Per_Day,data$engagement)
+cor(data$Follows_Per_Day,data$engagement)
+cor(data$Daily_Minutes_Spent,data$engagement)
+```
+
+## Correlation between other Attributes
+
+```{r}
+cor(data$Posts_Per_Day,data$Likes_Per_Day)
+cor(data$Posts_Per_Day,data$Follows_Per_Day)
+cor(data$Posts_Per_Day,data$Daily_Minutes_Spent)
+
+cor(data$Daily_Minutes_Spent, data$Likes_Per_Day)
+cor(data$Daily_Minutes_Spent, data$Follows_Per_Day)
+
+cor(data$Likes_Per_Day, data$Follows_Per_Day)
+```
+
+## Analysis Findings:
+
+Engagement and User Interactions: There is no significant correlation
+between engagement and individual user interactions such as posts,
+likes, or follows. This suggests that engagement may not be entirely
+dependent on these factors and can be influenced by other factors not
+mentioned, such as user preferences or content quality.
+
+Time Spent vs User Interactions: Similarly, the correlation between time
+spent and user interactions (likes, follows, posts) is also weak. This
+indicates that users who spend more time on the platform do not
+necessarily engage more in terms of likes, follows, or posts.
+
+Overall Trends: The correlations between the different user interactions
+(posts, likes, follows) are relatively weak, indicating that these
+factors may be independent of each other.
+
+## Conclusion:
+
+Average Engagement: Different platforms have varying levels of average
+engagement, with certain platforms showing higher levels of user
+interaction compared to others.We find that Instagram and TikTok exhibit
+the two highest average user engagement. This could be explained by the
+fact that these platforms are particularly popular among younger
+generations, who are typically more active on social media.
+Understanding these trends can help businesses or content creators
+identify platforms with the highest user engagement, aiding in more
+effective outreach and audience targeting.
+
+Correlations: The lack of significant correlations between engagement
+and user behavior metrics (posts, likes, follows) implies that these
+factors do not always lead to higher engagement. Additionally, the weak
+correlations between time spent and user interactions suggest that other
+factors might be influencing engagement.
