@@ -1,1 +1,53 @@
 # Data_Analysis_Capstone_Project
+Capstone Project: Social Media Engagement Analysis
+
+## Overview:
+
+This project focuses on analyzing user engagement on various social media platforms, specifically Instagram, TikTok, and YouTube. The objective is to examine factors like posts, likes, follows, and time spent on the platform to determine how these elements contribute to overall user engagement. The project also calculates and visualizes average engagement across different platforms.
+
+## Dataset:
+
+The dataset used in this analysis contains data on user activity from a sample consisting of 1000 social media users. It includes the following features:
+
+User_ID: Unique identifier for each user
+App: Social media platform (Instagram, TikTok, YouTube)
+Likes_Per_Day: Average number of likes given by the user per day
+Follows_Per_Day: Average number of follows per day by the user
+Posts_Per_Day: Average number of posts made by the user per day
+Daily_Minutes_Spent: Time spent by the user on the platform each day (in minutes)
+
+## Objective
+
+The main goal of this project is to: 
+-Calculate the engagement of users based on their daily activity on the platform
+-Visualize average engagement across different social media platforms
+-Explore correlations between different factors (posts, likes, follows, time spent) and user engagement
+-Identify potential patterns that could help improve user outreach and engagement strategies
+
+## Key Findings
+
+Average Engagement: Instagram and TikTok exhibit the highest average engagement levels compared to other platforms. This could be due to their popularity among younger generations.
+
+Correlation Analysis: No significant correlations were found between time spent, posts, likes, follows, and engagement, indicating that the factors do not directly influence user engagement in a predictable way.
+
+## Technologies Used
+
+R Programming: For data manipulation, analysis, and visualization.
+ggplot2: For creating visualizations such as bar plots and correlation matrices.
+Jupyter Notebook: For data cleaning, preprocessing, and analysis using Python.
+R Markdown: For generating the analysis report and documentation.
+
+## Files
+
+social_media_usage.csv: The dataset containing user data.
+Capstone_Project_Analysis_Report.Rmd: The R Markdown file containing code and report.
+Capstone_Project_Analysis_Report.html: The output report in HTML format.
+Data_Cleaning_and_Analysis.ipynb: Jupyter Notebook file for data cleaning and analysis using Python.
+
+## How to Run
+
+Clone this repository to your local machine.
+Install necessary R packages (for the R Markdown report):
+install.packages("ggplot2")
+For the data cleaning and analysis, open the Data_Cleaning_and_Analysis.ipynb notebook in Jupyter Notebook or JupyterLab, run the cells, and analyze data cleaning results. 
+Open the Capstone_Project_Analysis_Report.Rmd file in RStudio and knit it to generate the HTML report.
