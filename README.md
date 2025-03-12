@@ -3,7 +3,7 @@ Capstone Project: Social Media Engagement Analysis
 
 ## Overview:
 
-This project focuses on analyzing user engagement on various social media platforms, specifically Instagram, TikTok, and YouTube. The objective is to examine factors like posts, likes, follows, and time spent on the platform to determine how these elements contribute to overall user engagement. The project also calculates and visualizes average engagement across different platforms.
+This project focuses on analyzing user engagement on various social media platforms, such as Instagram, TikTok, etc. The objective is to examine factors like posts, likes, follows, and time spent on the platform to determine how these elements contribute to overall user engagement. The project also calculates and visualizes average engagement across different platforms.
 
 ## Dataset:
 
@@ -11,7 +11,7 @@ The dataset used in this analysis contains data on user activity from a sample c
 
 User_ID: Unique identifier for each user
 
-App: Social media platform (Instagram, TikTok, YouTube)
+App: Social media platform (Instagram, TikTok, Twitter, Facebook, etc.)
 
 Likes_Per_Day: Average number of likes given by the user per day
 
